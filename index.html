@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments | JS 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>TIIDElab Javascript Assignment 1</h1>
+        <div id="question1"></div>
+        <div id="answer1"></div>
+        <div id="question2"></div>
+        <div id="answer2"></div>
+    </div>
+    <script>
+        const question1 = `write a program that uses console.log() to print all the numbers
+ from 1 to 200, with two eceptions. for numbers divisible by 6, print 
+ "Shams" instead of the number, and for numbers divisible by 8 (and 
+ not 6), print "TIIDELAB" instead. When you have that working, modify
+ your program to print "ShamsTIIDELAB" for numbers that are divisible
+ by both 6 and 8 (and still print "Shams" or "TIIDELAB" for numbers
+ divisible by only one of those).`;
+        const question2 = `write a program that creates an 8x 8 grid, using newline characters to separate lines. At each position of the grid there is either a space or a '#' character. The characters should form a chessboard.
+        When you have a program that generates this pattern, define a binding size = 8 and change the program so that it works for any size, outputting a grid of the given width and height.`;
+
+        
+         function shamsTIIDELAB() {
+    let i = 1;
+    let output = "";
+    while (i <= 200) {
+        if (i % 6 == 0 && i % 8 == 0) {
+            // console.log("ShamsTIIDELAB");
+            output += "ShamsTIIDELAB" + `\n`;
+        } else if (i % 8 == 0) {
+            // console.log("TIIDELAB");
+            output += "TIIDELAB" + `\n`;
+        } else if (i % 6 == 0) {
+            // console.log("Shams");
+            output += "Shams" + `\n`;
+        } else {
+            // console.log(i);
+            output += `${i} \n`;
+        }
+        i++
+    }
+    return output;
+ }
+
+ const answer1 = shamsTIIDELAB();
+
+ function chessBoard(width) {
+    if (width % 2 === 0) {
+        str1 = " #";
+        str2 = "# ";
+        result = "";
+        let i = 1;
+        while (i <= width) {
+            if (i % 2 > 0) {
+                result += `.${str1.repeat(width / 2)}.\n`;
+            } else {
+                result += `.${str2.repeat(width / 2)}.\n`;
+            }
+            i++;
+        }
+
+        // console.log(result);
+        return `${result}`;
+    } else {
+        return "You have to choose an even width for the chess board!";
+    }
+ }
+
+ const answer2 = chessBoard(8);
+
+ document.getElementById("question1").innerHTML = question1;
+ document.getElementById("answer1").innerText = answer1;
+ document.getElementById("question2").innerHTML = question2;
+ document.getElementById("answer2").innerText = answer2;
+    </script>
+</body>
+</html>
